@@ -61,3 +61,12 @@ if favmeal=='potatoes':
 
         else:
                  print "All right. If you go get those ingredients, I'll help you when you get back. Deal?"
+                        
+if favmeal=='chicken':
+        print "All right. Here's the first thing to do: preheat the oven to 400 degrees."
+        print "Rub the chicken all over with salt and pepper. Then, cut slits in the chicken and tuck your herbs in."
+        print "Now, put the diced lemon into the cavity."
+        print "Put the chicken in a roasting pan, and put it in the oven with the cover on. Let it cook for one to one and a half hours, and then lower the temperature to 350 degrees."
+        print "Keep it in until the internal temperature is 165 degrees."
+        print "Once you have it out, you can start to pull it apart. Be careful! It's hot! Make sure to pull along the grain, not against it."
+        print "Or, if you wish, you can keep it whole and eat the You can now serve it in buns, or eat it by itself."
