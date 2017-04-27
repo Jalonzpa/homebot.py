@@ -27,7 +27,7 @@ while not allgood:
         else:
                  print "You didn't write either chicken, kraft dinner, or potato. Please try again."
                  allgood=False
-                time.sleep(2)
+                 time.sleep(2)
 print "How many times do you want me to help you make %s this week? (Answer with a number)" % favmeal
 favmealweek=raw_input()
 time.sleep(1)
