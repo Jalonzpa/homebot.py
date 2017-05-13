@@ -47,8 +47,8 @@ if favmeal=='kraft dinner':
         print "You'll just need these 2 ingredients: elbow noodles, and cheese. Do you have those?"
         ingravailable=raw_input()
 time.sleep(1)
-        if ingravailable=='yes':
-                print "Great! You are all set for tonight."
+if ingravailable=='yes':
+        print "Great! You are all set for tonight."
 
         else:
                  print "All right. If you go get those ingredients, I'll help you when you get back. Deal?"
