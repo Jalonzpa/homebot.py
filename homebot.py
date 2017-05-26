@@ -72,4 +72,4 @@ while not allgood2:
         time.sleep(2)
         talk("Once you have it out, you can start to pull it apart. Be careful! It's hot! Make sure to pull along the grain, not against it.")
         time.sleep(2)
-        talk("Or, if you wish, you can keep it whole and eat the You can now serve it in buns, or eat it by itself."
+        talk("Or, if you wish, you can keep it whole and eat the You can now serve it in buns, or eat it by itself.")
