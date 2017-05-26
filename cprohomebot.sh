@@ -30,6 +30,16 @@ curl -O https://github.com/xtacocorex/CHIP_IO/releases/download/v0.5.6/python-ch
 sudo dpkg -i python-chip-io_0.5.6-1_armhf.deb
 echo "Done!"
 
+#Installs Adafruit_Python_GPIO
+echo "Installing Adafruit_Python_GPIO..."
+sudo apt-get update
+sudo apt-get install build-essential python-pip python-dev python-smbus git
+git clone https://github.com/adafruit/Adafruit_Python_GPIO.git
+cd Adafruit_Python_GPIO
+sudo python setup.py install
+
+echo "CHIP_IO and Adafruit_Python_GPIO are both made by xtacocorex!"
+
 #Starts HomeBot script
 echo "Installing HomeBotOS..."
 curl -o homebot.py https://raw.githubusercontent.com/Jalonzpa/homebot_code/master/homebot.py
