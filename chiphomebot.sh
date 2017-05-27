@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "This first part of the script will set up your CHIP Pro to be able to download and run the HomeBot script."
+echo "This first part of the script will set up your CHIP to be able to download and run the HomeBot script."
 
 echo "This script will ask for your password."
 sleep 2
