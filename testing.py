@@ -68,7 +68,8 @@ def instructions():
         talk("Put the chicken in a roasting pan, and put it in the oven with the cover on. Let it cook for one to one and a half hours, and then lower the temperature to 350 degrees.")
         time.sleep(2)
         talk("Keep it in until the internal temperature is 165 degrees.")
-        time.sleep(2talk("Once you have it out, you can start to pull it apart. Be careful! It's hot! Make sure to pull along the grain, not against it.")
+        time.sleep(2)
+        talk("Once you have it out, you can start to pull it apart. Be careful! It's hot! Make sure to pull along the grain, not against it.")
         time.sleep(2)
         talk("You can now serve it in buns, or eat it by itself.")
     elif favmeal == 'kraft dinner':
