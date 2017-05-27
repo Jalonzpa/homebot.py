@@ -17,6 +17,9 @@ sleep 2
 sudo apt-get install python
 echo "Done!"
 
+#Installs flite
+sudo apt-get install flite
+
 #Installs the unnoficial CHIP_IO v5.5 package
 echo "Installing CHIP_IO..."
 sleep 2
