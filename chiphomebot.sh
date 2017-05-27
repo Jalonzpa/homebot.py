@@ -18,6 +18,7 @@ sudo apt-get install python
 echo "Done!"
 
 #Installs flite
+echo "Installing flite..."
 sudo apt-get install flite
 
 #Installs the unnoficial CHIP_IO v5.5 package
