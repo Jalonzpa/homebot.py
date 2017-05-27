@@ -76,7 +76,7 @@ while not allgood2:
         time.sleep(2)
         talk("Once you have it out, you can start to pull it apart. Be careful! It's hot! Make sure to pull along the grain, not against it.")
         time.sleep(2)
-        talk("You can now serve it in buns, or eat it by itself. You can now serve it!")
+        talk("You can now serve it in buns, or eat it by itself.")
 
     if favmeal == 'kraft dinner':
         talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 minutes.")
