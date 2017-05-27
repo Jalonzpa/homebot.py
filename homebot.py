@@ -35,7 +35,7 @@ while not allgood:
 talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
 timeweek=raw_input()
 time.sleep(1)
-talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
+talk("Ok, I'll help you make %s %s times this week." % (favmeal, timeweek))
 
 while not allgood2:
     if favmeal == 'chicken':
