@@ -30,7 +30,7 @@ def favmealcheck():
         allgood=False
         
 def ingredients():
-        if favmeal == 'chicken':
+    if favmeal == 'chicken':
         talk("You need these ingredients: a whole chicken, herbs like rosemary, chive, cilantro, or anything else, whole lemons, pepper, and salt. Do you have all these ingredients?")
         ingravailable=raw_input()
         time.sleep(1)
@@ -44,7 +44,7 @@ def ingredients():
         time.sleep(1)
         
 def ingrcheck():
-        if ingravailable == 'yes':
+    if ingravailable == 'yes':
         talk("Great! You are all set for tonight.")
         allgood2=True
     elif ingravailable == 'no':
