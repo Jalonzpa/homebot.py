@@ -4,6 +4,7 @@ import time
 import os
 allgood=False
 allgood2=False
+allgood3=False
 favmeal=""
 freq=""
 famlike=""
@@ -53,27 +54,32 @@ def main():
                 talk("You need these ingredients: a whole chicken, herbs like rosemary, chive, cilantro, or anything else, whole lemons, pepper, and salt. Do you have all these ingredients?")
                 ingravailable=raw_input()
                 time.sleep(1)
+                allgood2=True
             elif favmeal == 'kraft dinner':
                 talk("You'll just need these 3 ingredients: elbow noodles, breadcrumbs, and cheese. Do you have those?")
                 ingravailable=raw_input()
                 time.sleep(1)
+                allgood2=True
             elif favmeal == 'potatoes':
                 talk("You need these ingredients: potatoes, cheese, sour cream, and bacon. Do you have those?")
                 ingravailable=raw_input()
                 time.sleep(1)
+                allgood2=True
     # Talks to the user about their ingredients, or lack thereof
     def ingrcheck():
         print("ingrcheck")
-        global allgood2
-        while not allgood2:
+        global allgood3
+        global ingravailable
+        while not allgood3:
             if ingravailable == 'yes':
                 talk("Great! You are all set for tonight.")
-                allgood2=True
+                allgood3=True
             elif ingravailable == 'no':
                 talk("All right. If you go get those ingredients, I'll help you when you get back. Deal?")
-                allgood2=True
-            else
+                allgood3=True
+            else:
                 talk("You need to enter in something.")
+                allgood3=False
     # Gives the user instructions on how to cook their meal
     def instructions():
         print("instructions")
@@ -92,7 +98,7 @@ def main():
             time.sleep(2)
             talk("You can now serve it in buns, or eat it by itself.")
         elif favmeal == 'kraft dinner':
-            talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 minutes.")
+            talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 mi$
             time.sleep(2)
             talk("Drain the noodles now. Melt a quarter cup butter in a pan over medium heat, and stir in a quarter cup all purpose flour and half a teaspoon salt until smooth (usually 5 minutes).")
             time.sleep(2)
@@ -101,6 +107,7 @@ def main():
             talk("Add 2 cups shredded cheddar cheese to the milk mixture and stir until the mix is melted, usually 2 to 4 minutes.")
             time.sleep(2)
             talk("Stir the mixture into the noodles until the whole thing is coated.")
+            time.sleep(1)
             time.sleep(1)
             talk("Now you can add a bit more pepper if you want. You can now serve it!")
         elif favmeal == 'potatoes':
@@ -114,8 +121,8 @@ def main():
             time.sleep(1)
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
-    # Introduction
-    talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirty.")
+# Introduction
+    talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirt$
     talk("So, first I need to ask you some questions.")
 
     questions()
@@ -129,9 +136,9 @@ def main():
 
     ingredients()
     ingrcheck()
-
     instructions()
 
 if __name__ == "__main__":
     main()
     print("Main")
+
