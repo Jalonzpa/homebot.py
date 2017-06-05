@@ -122,7 +122,7 @@ def main():
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
 # Introduction
-    talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirt$
+    talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirty.")
     talk("So, first I need to ask you some questions.")
 
     questions()
