@@ -2,6 +2,7 @@
 # Sets and imports everything needed to make the program run
 import time
 import os
+import sys
 allgood=False
 allgood2=False
 allgood3=False
@@ -34,13 +35,25 @@ def main():
         while not allgood:
             if favmeal == 'chicken':
                 talk("Your favorite meal is chicken, correct?")
-                allgood=True
+		correct=raw_input()
+                if correct == 'yes':
+                    allgood=True
+		else:
+		    questions()
             elif favmeal == 'kraft dinner':
                 talk("Your favorite meal is Kraft dinner, correct?")
-                allgood=True
+                correct=raw_input()
+        	if correct == 'yes':
+		    allgood=True
+                else:
+		    questions()
             elif favmeal == 'potatoes':
                 talk("Your favorite meal is potatoes, correct?")
-                allgood=True
+                correct=raw_input()    
+		if correct == 'yes':
+                    allgood=True
+		else:
+                    questions()
             else:
                 talk("You didn't write either chicken, kraft dinner, or potatoes. Please try again.")
                 allgood=False
@@ -77,6 +90,7 @@ def main():
             elif ingravailable == 'no':
                 talk("All right. If you go get those ingredients, I'll help you when you get back. Deal?")
                 allgood3=True
+		sys.exit()
             else:
                 talk("You need to enter in something.")
                 allgood3=False
@@ -98,7 +112,7 @@ def main():
             time.sleep(2)
             talk("You can now serve it in buns, or eat it by itself.")
         elif favmeal == 'kraft dinner':
-            talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 mi$
+            talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 minutes.")
             time.sleep(2)
             talk("Drain the noodles now. Melt a quarter cup butter in a pan over medium heat, and stir in a quarter cup all purpose flour and half a teaspoon salt until smooth (usually 5 minutes).")
             time.sleep(2)
