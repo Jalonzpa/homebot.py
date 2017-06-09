@@ -12,6 +12,16 @@ famlike=""
 ingravailable=""
 def main():
     print("Main")
+
+    f = open("donealready.txt", "w")
+    file.write("done")
+    file.close()
+
+    file = open("donealready.txt", "r")
+    print file.read(1)
+        if donealready = "done":
+            # Need to add it so it doesn't repeat itself
+
     # Lets HomeBot talk
     def talk(my_string):
         os.system('/usr/bin/flite -t "' + my_string + '"')
