@@ -137,13 +137,19 @@ def main():
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
 
+    file_write1 = open("donealready.txt", "w")
+    file_write1.write("nil")
+    file_write1.close()
+
     print("reading")
     file_reading = open("donealready.txt", "r")
     read = file_reading.read()
     file_reading.close()
+
     if read == 'done':
         instructions()
     else:
+        print("Writing")
         file_write = open("donealready.txt", "w")
         file_write.write("done")
         file_write.close()
