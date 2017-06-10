@@ -136,19 +136,17 @@ def main():
             time.sleep(1)
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
-    print("writing")
-    file_write = open("donealready.txt", "w")
-    file_write.write('done')
-    file_write.close()
 
     print("reading")
     file_reading = open("donealready.txt", "r")
+    read = file_reading.read()
     file_reading.close()
-    if file_reading == 'done':
+    if read == 'done':
         instructions()
     else:
-        talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirty.")
-        talk("So, first I need to ask you some questions.")
+        file_write = open("donealready.txt", "w")
+        file_write.write("done")
+        file_write.close()
 
         questions()
         favmealcheck()
