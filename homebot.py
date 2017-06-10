@@ -13,15 +13,6 @@ ingravailable=""
 def main():
     print("Main")
 
-    f = open("donealready.txt", "w")
-    file.write("done")
-    file.close()
-
-    file = open("donealready.txt", "r")
-    print file.read(1)
-        if donealready = "done":
-            # Need to add it so it doesn't repeat itself
-
     # Lets HomeBot talk
     def talk(my_string):
         os.system('/usr/bin/flite -t "' + my_string + '"')
@@ -145,22 +136,31 @@ def main():
             time.sleep(1)
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
-# Introduction
-    talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirty.")
-    talk("So, first I need to ask you some questions.")
+    print("writing")
+    file_write = open("donealready.txt", "w")
+    file_write.write('done')
+    file_write.close()
 
-    questions()
-    favmealcheck()
+    print("reading")
+    file_reading = open("donealready.txt", "r")
+    file_reading.close()
+    if file_reading == 'done':
+        instructions()
+    else:
+        talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirty.")
+        talk("So, first I need to ask you some questions.")
 
-    talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
-    timeweek=raw_input()
-    time.sleep(1)
-    talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
+        questions()
+        favmealcheck()
+
+        talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
+        timeweek=raw_input()
+        time.sleep(1)
+        talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
 
 
-    ingredients()
-    ingrcheck()
-    instructions()
+        ingredients()
+        ingrcheck()
 
 if __name__ == "__main__":
     main()
