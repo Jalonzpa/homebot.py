@@ -29,6 +29,7 @@ def main():
         global famlike
         famlike=raw_input()
         talk("So you have %r %r, and %r." % (favmeal, freq, famlike.replace("yes", "everyone in your family likes %s") % (favmeal)))
+	print("end questions")
     # Checks if the favorite meal is correct
     def favmealcheck():
         print("favmealcheck")
@@ -58,6 +59,8 @@ def main():
             else:
                 talk("You didn't write either chicken, kraft dinner, or potatoes. Please try again.")
                 allgood=False
+		
+	    print("end favmealcheck")
     # Tells the user what ingredients they need
     def ingredients():
         print("ingredients")
@@ -79,6 +82,8 @@ def main():
                 ingravailable=raw_input()
                 time.sleep(1)
                 allgood2=True
+
+	    print ("end ingredients")
     # Talks to the user about their ingredients, or lack thereof
     def ingrcheck():
         print("ingrcheck")
@@ -95,6 +100,7 @@ def main():
             else:
                 talk("You need to enter in something.")
                 allgood3=False
+	    print("end ingrcheck")
     # Gives the user instructions on how to cook their meal
     def instructions():
         print("instructions")
@@ -137,9 +143,10 @@ def main():
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
 
-    file_write1 = open("donealready.txt", "w")
-    file_write1.write("nil")
-    file_write1.close()
+    if os.stat("donealready.txt").st_size == 0:
+        file_write1 = open("donealready.txt", "w")
+        file_write1.write("null")
+        file_write1.close()
 
     print("reading")
     file_reading = open("donealready.txt", "r")
