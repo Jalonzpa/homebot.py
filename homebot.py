@@ -149,36 +149,40 @@ def main():
 
 	print("end instructions")
 
-    if os.stat("donealready.txt").st_size == 0:
-        file_write1 = open("donealready.txt", "w")
-        file_write1.write("null")
-        file_write1.close()
-    else:
-        global read
-	print("reading")
-        file_reading = open("donealready.txt", "r")
-        read = file_reading.read()
-        file_reading.close()
+    def repeatcheck():
+        if os.stat("donealready.txt").st_size == 0:
+            file_write1 = open("donealready.txt", "w")
+            file_write1.write("null")
+            file_write1.close()
+        else:
+	    print("reading")
+            file_reading = open("donealready.txt", "r")
+            read = file_reading.read()
+            file_reading.close()
 
-    global read
-    if read == "done":
-        instructions()
-    else:
-        print("Writing")
-        file_write = open("donealready.txt", "w")
-        file_write.write("done")
-        file_write.close()
+        if read == "done":
+            instructions()
+        else:
+            print("Writing")
+            file_write = open("donealready.txt", "w")
+            file_write.write("done")
+            file_write.close()
 
-        questions()
-        favmealcheck()
+	    talk("Hello. I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, set reminders, and help you text people while you are cooking so you don't get your phone dirty.")
+	    talk("But first, I need to ask you some questions.")
 
-        talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
-        timeweek=raw_input()
-        time.sleep(1)
-        talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
+            questions()
+            favmealcheck()
+  
+            talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
+            timeweek=raw_input()
+            time.sleep(1)
+            talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
 
-        ingredients()
-        ingrcheck()
+            ingredients()
+            ingrcheck()
+
+    repeatcheck()
 
 if __name__ == "__main__":
     main()
