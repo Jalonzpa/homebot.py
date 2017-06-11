@@ -10,6 +10,11 @@ favmeal=""
 freq=""
 famlike=""
 ingravailable=""
+read = ""
+
+file_open = open("donealready.txt", "w")
+file_open.write("")
+file_open.close()
 def main():
     print("Main")
 
@@ -142,18 +147,21 @@ def main():
             time.sleep(1)
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
+	print("end instructions")
 
     if os.stat("donealready.txt").st_size == 0:
         file_write1 = open("donealready.txt", "w")
         file_write1.write("null")
         file_write1.close()
+    else:
+        global read
+	print("reading")
+        file_reading = open("donealready.txt", "r")
+        read = file_reading.read()
+        file_reading.close()
 
-    print("reading")
-    file_reading = open("donealready.txt", "r")
-    read = file_reading.read()
-    file_reading.close()
-
-    if read == 'done':
+    global read
+    if read == "done":
         instructions()
     else:
         print("Writing")
@@ -168,7 +176,6 @@ def main():
         timeweek=raw_input()
         time.sleep(1)
         talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
-
 
         ingredients()
         ingrcheck()
