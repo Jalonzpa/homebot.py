@@ -34,7 +34,7 @@ def main():
         favmealcheck()
 
         talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
-        timeweek=raw_input()
+        timeweek = raw_input()
         time.sleep(1)
         talk("Ok, I'll help you make %s %s times this week." % (favmeal, timeweek))
 
@@ -51,16 +51,16 @@ def questions():
     
     print("questions")
     talk("First, What is your favorite meal? Choose from chicken, kraft dinner, or potatoes.")
-    favmeal=raw_input()
-    favmeal_write = open("donealready.txt", "w")
-    favmeal_write.write("%r" % (favmeal))
+    favmeal = raw_input()
+    favmeal_write = open("favmeal.txt", "w")
+    favmeal_write.write('%r' % (favmeal))
     favmeal_write.close()
 
     talk("Second, how often do you have that meal?")
     freq=raw_input()
     talk("Third, does everyone in your family like that meal?")
     famlike=raw_input()
-    talk("So you have %r %r, and %r." % (favmeal, freq, famlike.replace("yes", "everyone in your family likes %s") % (freq)))
+    talk("So you have %r %r, and %r." % (favmeal, freq, famlike.replace("yes", "everyone in your family likes %s") % (favmeal)))
     print("end questions")
 # Checks if the favorite meal is correct
 def favmealcheck():
@@ -136,13 +136,18 @@ def ingrcheck():
             sys.exit()
         else:
 	    allgood3 = False
+	
 	print("end ingrcheck")
     # Gives the user instructions on how to cook their meal
 def instructions():
-    global favmeal
+    print("Instruction read")
+    favmeal_read = open("favmeal.txt", "r")
+    favmealins = favmeal_read.read()
+    print(favmealins)
+    favmeal_read.close()
 
     print("instructions")
-    if favmeal == 'chicken':
+    if favmealins == 'chicken':
         talk("All right. Here's the first thing to do: preheat the oven to 400 degrees.")
         time.sleep(2)
         talk("Rub the chicken all over with salt and pepper. Then, cut slits in the chicken and tuck your herbs in.")
@@ -156,7 +161,7 @@ def instructions():
         talk("Once you have it out, you can start to pull it apart. Be careful! It's hot! Make sure to pull along the grain, not against it.")
         time.sleep(2)
         talk("You can now serve it in buns, or eat it by itself.")
-    elif favmeal == 'kraft dinner':
+    elif favmealins == 'kraft dinner':
         talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 minutes.")
         time.sleep(2)
         talk("Drain the noodles now. Melt a quarter cup butter in a pan over medium heat, and stir in a quarter cup all purpose flour and half a teaspoon salt until smooth (usually 5 minutes).")
@@ -169,7 +174,7 @@ def instructions():
         time.sleep(1)
         time.sleep(1)
         talk("Now you can add a bit more pepper if you want. You can now serve it!")
-    elif favmeal == 'potatoes':
+    elif favmealins == 'potatoes':
         talk("Make sure to wash and scrub the potato. Prick it in several places with a fork.")
         time.sleep(1)
         talk("Cook in the microwave for 5 minutes. Then, turn it over and cook for 5 more minutes.")
