@@ -3,14 +3,8 @@
 import time
 import os
 import sys
-allgood=False
-allgood2=False
-allgood3=False
-favmeal=""
-freq=""
-famlike=""
 ingravailable=""
-read = ""
+favmeal = ""
 
 file_open = open("donealready.txt", "w")
 file_open.write("")
@@ -18,18 +12,18 @@ file_open.close()
 def main():
     print("Main")
 
+# Checks if the file exists
     if os.path.exists("/home/chip/homebot_code/donealready.txt"):
         print("reading")
+# Reads the file
         file_reading = open("donealready.txt", "r")
         read = file_reading.read()
         file_reading.close()
-    else:
-        file_write1 = open("donealready.txt", "w")
-        file_write1.write("")
-        file_write1.close()
 
+# If the file reads "done", it skips the intro and goes straight to instructions
     if read == "done":
         instructions()
+# Otherwise, it goes from the start, and writes "done" so it won't repeat it next time the program is run
     else:
         print("Writing")
         file_write = open("donealready.txt", "w")
@@ -45,33 +39,35 @@ def main():
         talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
         timeweek=raw_input()
         time.sleep(1)
-        talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
+        talk("Ok, I'll help you make %s %s times this week." % (favmeal, timeweek))
 
         ingredients()
         ingrcheck()
-
-
+        repeatcheck
 # Lets HomeBot talk
 def talk(my_string):
     os.system('/usr/bin/flite -t "' + my_string + '"')
 # Asks the user questions
 def questions():
+    global favmeal
+    freq = ""
+    famlike = ""
+    
     print("questions")
     talk("First, What is your favorite meal? Choose from chicken, kraft dinner, or potatoes.")
-    global favmeal
     favmeal=raw_input()
     talk("Second, how often do you have that meal?")
-    global freq
     freq=raw_input()
     talk("Third, does everyone in your family like that meal?")
-    global famlike
     famlike=raw_input()
-    talk("So you have %r %r, and %r." % (favmeal, freq, famlike.replace("yes", "everyone in your family likes %s") % (favmeal)))
+    talk("So you have %r %r, and %r." % (favmeal, freq, famlike.replace("yes", "everyone in your family likes %s") % (freq)))
     print("end questions")
 # Checks if the favorite meal is correct
 def favmealcheck():
+    global favmeal
+    allgood = False
+
     print("favmealcheck")
-    global allgood
     while not allgood:
         if favmeal == 'chicken':
             talk("Your favorite meal is chicken, correct?")
@@ -101,9 +97,9 @@ def favmealcheck():
 	print("end favmealcheck")
 # Tells the user what ingredients they need
 def ingredients():
+    allgood2 = False
+
     print("ingredients")
-    global allgood2
-    global ingravailable
     while not allgood2:
         if favmeal == 'chicken':
             talk("You need these ingredients: a whole chicken, herbs like rosemary, chive, cilantro, or anything else, whole lemons, pepper, and salt. Do you have all these ingredients?")
@@ -124,8 +120,10 @@ def ingredients():
     print ("end ingredients")
 # Talks to the user about their ingredients, or lack thereof
 def ingrcheck():
+    allgood3 = False
+    global ingravailable
+
     print("ingrcheck")
-    global allgood3
     global ingravailable
     while not allgood3:
         if ingravailable == 'yes':
@@ -183,7 +181,8 @@ def instructions():
     print("end instructions")
 
 def repeatcheck():
-    global read
+    read = ""
+
     if os.path.exists("/home/chip/homebot_code/donealready.txt"):
         file_write1 = open("donealready.txt", "w")
 	file_write1.write("")
@@ -216,7 +215,6 @@ def repeatcheck():
         ingredients()
         ingrcheck()
 
-repeatcheck()
 
 if __name__ == "__main__":
     main()
