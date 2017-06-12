@@ -6,9 +6,6 @@ import sys
 ingravailable=""
 favmeal = ""
 
-file_open = open("donealready.txt", "w")
-file_open.write("")
-file_open.close()
 def main():
     print("Main")
 
@@ -19,10 +16,10 @@ def main():
         file_reading = open("donealready.txt", "r")
         read = file_reading.read()
         file_reading.close()
-
+        print(read)
 # If the file reads "done", it skips the intro and goes straight to instructions
-    if read == "done":
-        instructions()
+        if read == "done":
+            instructions()
 # Otherwise, it goes from the start, and writes "done" so it won't repeat it next time the program is run
     else:
         print("Writing")
@@ -43,7 +40,6 @@ def main():
 
         ingredients()
         ingrcheck()
-        repeatcheck
 # Lets HomeBot talk
 def talk(my_string):
     os.system('/usr/bin/flite -t "' + my_string + '"')
@@ -56,6 +52,10 @@ def questions():
     print("questions")
     talk("First, What is your favorite meal? Choose from chicken, kraft dinner, or potatoes.")
     favmeal=raw_input()
+    favmeal_write = open("donealready.txt", "w")
+    favmeal_write.write("%r" % (favmeal))
+    favmeal_write.close()
+
     talk("Second, how often do you have that meal?")
     freq=raw_input()
     talk("Third, does everyone in your family like that meal?")
@@ -128,17 +128,19 @@ def ingrcheck():
     while not allgood3:
         if ingravailable == 'yes':
             talk("Great! You are all set for tonight.")
-            allgood3=True
+            allgood3 = True
+	    sys.exit()
         elif ingravailable == 'no':
             talk("All right. If you go get those ingredients, I'll help you when you get back. Deal?")
-            allgood3=True
+            allgood3 = True
             sys.exit()
         else:
-            talk("You need to enter in something.")
-            allgood3=False
+	    allgood3 = False
 	print("end ingrcheck")
     # Gives the user instructions on how to cook their meal
 def instructions():
+    global favmeal
+
     print("instructions")
     if favmeal == 'chicken':
         talk("All right. Here's the first thing to do: preheat the oven to 400 degrees.")
