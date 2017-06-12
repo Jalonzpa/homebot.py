@@ -12,9 +12,6 @@ famlike=""
 ingravailable=""
 read = ""
 
-file_open = open("donealready.txt", "w")
-file_open.write("")
-file_open.close()
 def main():
     print("Main")
 
@@ -149,40 +146,21 @@ def main():
 
 	print("end instructions")
 
-    def repeatcheck():
-        if os.stat("donealready.txt").st_size == 0:
-            file_write1 = open("donealready.txt", "w")
-            file_write1.write("null")
-            file_write1.close()
-        else:
-	    print("reading")
-            file_reading = open("donealready.txt", "r")
-            read = file_reading.read()
-            file_reading.close()
 
-        if read == "done":
-            instructions()
-        else:
-            print("Writing")
-            file_write = open("donealready.txt", "w")
-            file_write.write("done")
-            file_write.close()
+        talk("Hello. I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, set reminders, and help you text people while you are cooking so you don't get your phone dirty.")
+	talk("But first, I need to ask you some questions.")
 
-	    talk("Hello. I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, set reminders, and help you text people while you are cooking so you don't get your phone dirty.")
-	    talk("But first, I need to ask you some questions.")
-
-            questions()
-            favmealcheck()
+        questions()
+        favmealcheck()
   
-            talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
-            timeweek=raw_input()
-            time.sleep(1)
-            talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
-
-            ingredients()
-            ingrcheck()
-
-    repeatcheck()
+        talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
+        timeweek=raw_input()
+        time.sleep(1)
+        talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
+    
+        ingredients()
+        ingrcheck()
+        instructions()
 
 if __name__ == "__main__":
     main()
