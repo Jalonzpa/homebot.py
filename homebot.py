@@ -53,11 +53,11 @@ def questions():
     talk("First, What is your favorite meal? Choose from chicken, kraft dinner, or potatoes.")
     favmeal = raw_input()
     favmeal_write = open("favmeal.txt", "w")
-    favmeal_write.write('%r' % (favmeal))
+    favmeal_write.write('"%r"' % (favmeal))
     favmeal_write.close()
 
     talk("Second, how often do you have that meal?")
-    freq=raw_input()
+    freq = raw_input()
     talk("Third, does everyone in your family like that meal?")
     famlike=raw_input()
     talk("So you have %r %r, and %r." % (favmeal, freq, famlike.replace("yes", "everyone in your family likes %s") % (favmeal)))
@@ -90,9 +90,9 @@ def favmealcheck():
 	    if correct == 'yes':
                allgood=True
                questions()
-            else:
-                talk("You didn't write either chicken, kraft dinner, or potatoes. Please try again.")
-                allgood=False
+        else:
+            talk("You didn't write either chicken, kraft dinner, or potatoes. Please try again.")
+            allgood=False
 		
 	print("end favmealcheck")
 # Tells the user what ingredients they need
@@ -103,17 +103,17 @@ def ingredients():
     while not allgood2:
         if favmeal == 'chicken':
             talk("You need these ingredients: a whole chicken, herbs like rosemary, chive, cilantro, or anything else, whole lemons, pepper, and salt. Do you have all these ingredients?")
-            ingravailable=raw_input()
+            ingravailable = raw_input()
             time.sleep(1)
             allgood2=True
         elif favmeal == 'kraft dinner':
             talk("You'll just need these 3 ingredients: elbow noodles, breadcrumbs, and cheese. Do you have those?")
-            ingravailable=raw_input()
+            ingravailable = raw_input()
             time.sleep(1)
             allgood2=True
         elif favmeal == 'potatoes':
             talk("You need these ingredients: potatoes, cheese, sour cream, and bacon. Do you have those?")
-            ingravailable=raw_input()
+            ingravailable = raw_input()
             time.sleep(1)
             allgood2=True
 	
@@ -129,22 +129,28 @@ def ingrcheck():
         if ingravailable == 'yes':
             talk("Great! You are all set for tonight.")
             allgood3 = True
+            print("end ingrcheck")	   
 	    sys.exit()
         elif ingravailable == 'no':
             talk("All right. If you go get those ingredients, I'll help you when you get back. Deal?")
             allgood3 = True
+            print("end ingrcheck")
             sys.exit()
         else:
 	    allgood3 = False
 	
-	print("end ingrcheck")
     # Gives the user instructions on how to cook their meal
 def instructions():
     print("Instruction read")
     favmeal_read = open("favmeal.txt", "r")
     favmealins = favmeal_read.read()
-    print(favmealins)
     favmeal_read.close()
+    print(favmealins)
+    print("Instruction read end")
+
+    print("replacing...")
+    favmealins.replace("'chicken'", "chicken")
+    print("replaced")
 
     print("instructions")
     if favmealins == 'chicken':
