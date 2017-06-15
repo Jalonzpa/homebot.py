@@ -2,6 +2,7 @@
 # Sets and imports everything needed to make the program run
 import time
 import os
+import sys
 allgood=False
 allgood2=False
 allgood3=False
@@ -34,16 +35,28 @@ def main():
         while not allgood:
             if favmeal == 'chicken':
                 talk("Your favorite meal is chicken, correct?")
-                allgood=True
-            elif favmeal == 'kraft dinner':
+	        correct=raw_input()
+                if correct == 'yes':
+                    allgood=True
+                else:
+	            questions()
+        
+     	    elif favmeal == 'kraft dinner':
                 talk("Your favorite meal is Kraft dinner, correct?")
-                allgood=True
+                correct=raw_input()
+                if correct == 'yes':
+	             allgood=True
+                else:
+		    questions()
             elif favmeal == 'potatoes':
                 talk("Your favorite meal is potatoes, correct?")
-                allgood=True
-            else:
-                talk("You didn't write either chicken, kraft dinner, or potatoes. Please try again.")
-                allgood=False
+                correct=raw_input()    
+	        if correct == 'yes':
+                   allgood=True
+                   questions()
+                else:
+                    talk("You didn't write either chicken, kraft dinner, or potatoes. Please try again.")
+                    allgood=False
     # Tells the user what ingredients they need
     def ingredients():
         print("ingredients")
@@ -77,6 +90,7 @@ def main():
             elif ingravailable == 'no':
                 talk("All right. If you go get those ingredients, I'll help you when you get back. Deal?")
                 allgood3=True
+		sys.exit()
             else:
                 talk("You need to enter in something.")
                 allgood3=False
@@ -98,7 +112,7 @@ def main():
             time.sleep(2)
             talk("You can now serve it in buns, or eat it by itself.")
         elif favmeal == 'kraft dinner':
-            talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 mi$
+            talk("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 minutes or so.")
             time.sleep(2)
             talk("Drain the noodles now. Melt a quarter cup butter in a pan over medium heat, and stir in a quarter cup all purpose flour and half a teaspoon salt until smooth (usually 5 minutes).")
             time.sleep(2)
@@ -122,7 +136,7 @@ def main():
             talk("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
 # Introduction
-    talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirt$
+    talk("Hello! I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, help set reminders, and also helping you text people while you are cooking so you don't get your phone dirty.")
     talk("So, first I need to ask you some questions.")
 
     questions()
@@ -131,7 +145,7 @@ def main():
     talk("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
     timeweek=raw_input()
     time.sleep(1)
-    talk("Ok, I'll help you make %s %s times this week." % (favmeal, freq))
+    talk("Ok, I'll help you make %s %s times this week." % (favmeal, timeweek))
 
 
     ingredients()
