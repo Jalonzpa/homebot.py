@@ -9,23 +9,21 @@ favmeal = ""
 def main():
     print("Main")
 
-# Checks if the file exists
-    if os.path.exists("/home/chip/homebot_code/donealready.txt"):
-        print("reading")
 # Reads the file
-        file_reading = open("donealready.txt", "r")
-        read = file_reading.read()
-        file_reading.close()
-        print(read)
+    file_reading = open("donealready.txt", "r")
+    read = file_reading.read()
+    file_reading.close()
+    print(read)
 # If the file reads "done", it skips the intro and goes straight to instructions
-        if read == "done":
-            instructions()
+    if read == "done":
+        instructions()
 # Otherwise, it goes from the start, and writes "done" so it won't repeat it next time the program is run
     else:
         print("Writing")
         file_write = open("donealready.txt", "w")
         file_write.write("done")
         file_write.close()
+        print("Written")
 
         talk("Hello. I am HomeBot, your personal cooking helper. I will help you with all your cooking needs, set reminders, and help you text people while you are cooking so you don't get your phone dirty.")
         talk("But first, I need to ask you some questions.")
