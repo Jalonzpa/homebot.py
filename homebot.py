@@ -51,7 +51,7 @@ def questions():
     talk("First, What is your favorite meal? Choose from chicken, kraft dinner, or potatoes.")
     favmeal = raw_input()
     favmeal_write = open("favmeal.txt", "w")
-    favmeal_write.write('"%r"' % (favmeal))
+    favmeal_write.write('%r' % (favmeal))
     favmeal_write.close()
 
     talk("Second, how often do you have that meal?")
@@ -137,21 +137,23 @@ def ingrcheck():
         else:
 	    allgood3 = False
 	
-    # Gives the user instructions on how to cook their meal
+# Gives the user instructions on how to cook their meal
 def instructions():
-    print("Instruction read")
-    favmeal_read = open("favmeal.txt", "r")
-    favmealins = favmeal_read.read()
-    favmeal_read.close()
-    print(favmealins)
-    print("Instruction read end")
 
-    print("replacing...")
-    favmealins.replace("'chicken'", "chicken")
-    print("replaced")
+# Checks if the file exists
+    if os.path.exists("/home/chip/homebot_code/favmeal.txt"):
+        print("reading")
+# Reads the file
+        file_reading = open("favmeal.txt", "r")
+        read_favmeal = file_reading.read()
+        file_reading.close()
+        print(read_favmeal)
+    else:
+        print("Something went wrong with the program.")
+        sys.exit()
 
     print("instructions")
-    if favmealins == 'chicken':
+    if read_favmeal == 'chicken':
         talk("All right. Here's the first thing to do: preheat the oven to 400 degrees.")
         time.sleep(2)
         talk("Rub the chicken all over with salt and pepper. Then, cut slits in the chicken and tuck your herbs in.")
