@@ -20,10 +20,10 @@ void main(void) //main function
 			switch (menu_selection)
 			{
 			case 1: //If the user types 1
-				system("cls");
+				system("clear");
 				printf("Well chicken it is!");
 				delay(2);
-				system("cls");
+				system("clear");
 
 				//Give step by step recipe instructions for chicken.
 
@@ -42,7 +42,7 @@ void main(void) //main function
 
 				delay(2);
 
-				system("cls");
+				system("clear");
 
 				break;
 			}
