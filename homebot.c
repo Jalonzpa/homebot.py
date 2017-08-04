@@ -38,7 +38,7 @@ void main(void) //main function
         break;
         
       default: //If user doesn't type 1, 2, or 3
-				printf("I'm sorry, you didn't enter a correct value. Please try again.");
+				printf("I'm sorry, you didn't enter a correct value. Please try again.\n\n");
 
 				delay(2);
 
