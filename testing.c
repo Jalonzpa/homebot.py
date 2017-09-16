@@ -2,6 +2,11 @@
 #include <stdbool.h> //standard bool; for booleans
 #include <stdlib.h> ///find out what this is for
 #include <unistd.h> //for sleep/delay functions
+#include <string.h> //for strings
+
+char name;
+char meal;
+char ingredients;
 
 int main(void) //main function
 {
@@ -14,7 +19,7 @@ int main(void) //main function
 	printf("So, first I need to ask you some questions so that I can assist you better.");
 	sleep(2);
 	printf("So I never got to ask, what's your name?");
-	scanf(%s,name);
+	scanf("%s", &name);
 	print("Hello %s!", name);
 
 	while (program_running)
@@ -25,22 +30,22 @@ int main(void) //main function
 
 		if (menu_selection == 1)
 		{
-			meal = "chicken";
+			scanf("chicken", &meal)
 		}
 		else if (menu_selection == 2)
 		{
-			meal = "kraft dinner";
+			scanf("kraft dinner", &meal)
 		}
 
 		else if (menu_selection == 3)
 		{
-			meal = "potatoes";
+			scanf("potatoes", &meal)
 		}
 
-		printf("So, if I'm going to help you make %s, I need you to get some ingredients.", meal)
-		printf(" I need you to get these ingredients:")
+		printf("So, if I'm going to help you make %s, I need you to get some ingredients.", meal);
+		printf(" I need you to get these ingredients:");
 
-		if (meal == "chicken")
+		if (meal == 'chicken')
 		{
 			printf("\n\n1. A whole chicken\n2. Herbs (rosemary, chive, cilantro, etc.)\n3. A lemon\n4. Salt/pepper");
 			scanf("%s", &ingredients);
@@ -57,7 +62,8 @@ int main(void) //main function
 				sleep(2);
 				system("clear");
 
-				printf("Alright, so if you want some great home-made chicken, you're gonna need some ingredients. You'll need a whole chicken, herbs (like rosemary, chive, silantro), a lemon (or two), and some salt and pepper.")
+				printf("Alright, so if you want some great home-made chicken, you're gonna need some ingredients.")
+				
 				printf(" Do you have all of those?") 
 
 				scanf("%s", &ingredients)

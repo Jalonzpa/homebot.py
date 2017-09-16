@@ -14,7 +14,7 @@ int main(void) //main function
 	printf("So, first I need to ask you some questions so that I can assist you better.");
 	sleep(2);
 	printf("So I never got to ask, what's your name?");
-	scanf("%s", name);
+	scanf("%s", &name);
 	print("Hello %s!", name);
 
 	while (program_running)
