@@ -29,14 +29,21 @@ int main(void) //main function
 	settings = fopen("settings.txt", "r");
 
 	config = fgetc(settings);
-	printf("%c", config);
+
+	fclose(settings);
 
 	system("clear");
 
 	if (config == 'a')
 	{
 	intro();
+	FILE *settings;
+	settings = fopen("settings.txt", "w");
+	fprintf(settings, "b");
+	fclose(settings);
 	}
+
+	int fclose(FILE *);
 
 	while (program_running)
 	{	
@@ -132,7 +139,8 @@ void intro(void)
 	slow_print("I never got to ask, what's your name?\n");
 	scanf("%s", name);
     slow_print("Hello, "); 
-    slow_print(name);
+	slow_print(name);
+	slow_print("!");
 
     sleep(1);
 	system("clear");
@@ -147,7 +155,7 @@ void chicken(void)
 	system("clear");
 
 	slow_print("Alright, so if you want some great home-made chicken, you're gonna need some ingredients.");
-	slow_print("You need these ingredients: \n\n1. Whole chicken\n2. Herbs like rosemary, chive, cilantro, etc.\n3.Whole lemon\n4. Pepper and salt\n\n");
+	slow_print("You need these ingredients: \n\n1. Whole chicken\n2. Herbs like rosemary, chive, cilantro, etc.\n3. Whole lemon\n4. Pepper and salt\n\n");
 	slow_print("\nDo you have all of those?");
 	
 	if (getchar() == 89 || getchar() == 121)
