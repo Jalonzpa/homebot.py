@@ -94,7 +94,7 @@ void slow_print (char *strprint)
     {
         printf("%c", strprint[index]);
         fflush(stdout);
-        usleep(25000);
+        usleep(20000);
     }
 }
 
@@ -109,7 +109,7 @@ void slow_print_wait (char *strprint)
     {
         printf("%c", strprint[index]);
         fflush(stdout);
-        usleep(25000);
+        usleep(20000);
     }
     
     while (instruction_wait)
@@ -154,17 +154,21 @@ void chicken(void)
 	sleep(1);
 	system("clear");
 
-	slow_print("Alright, so if you want some great home-made chicken, you're gonna need some ingredients.");
-	slow_print("You need these ingredients: \n\n1. Whole chicken\n2. Herbs like rosemary, chive, cilantro, etc.\n3. Whole lemon\n4. Pepper and salt\n\n");
-	slow_print("\nDo you have all of those?");
+	slow_print("Alright, so if you want some great home-made chicken, you're gonna need these ingredients:\n\n");
+	slow_print("1. Whole chicken\n2. Herbs like rosemary, chive, cilantro, etc.\n3. Whole lemon\n4. Pepper and salt\n\n");
+	slow_print("\nDo you have all of those?\n\n");
 	
 	if (getchar() == 89 || getchar() == 121)
 	{
-		slow_print("Great! You're all set.");
+		slow_print("\nGreat! You're all set.\n");
+		sleep(1);
+		system("clear");
 	}
 	else
 	{
 		slow_print("Ok, I'll help you make chicken once you get those ingredients.");
+		sleep(1);
+		system("clear");
 		return;
 	}
 
@@ -191,16 +195,34 @@ void kraftdinner(void)
 	slow_print("Alright, Kraft dinner!\n\n");
 	sleep(1);
 	system("clear");
+
+	slow_print("Ok, here are the ingredients that you need for kraft dinner:\n\n");
+	slow_print("1. One cup elbow noodles\n2. Quarter cup butter\n3. A quarter cup of all-purpose butter\n4. Half a teaspoon of salt\n5. Two cups of milk\n6. 2 Two cups of shredded cheese (cheddar works best)\n7. Pepper and salt\n\n");
+	slow_print("Do you have all of those ingredients?\n\n");
 	
-	slow_print_wait("First things first; bring a big pot of water to a boil. Cook 8 ounces of elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 minutes.\n\n");
+	if (getchar() == 89 || getchar() == 121)
+	{
+		slow_print("\nGreat! You're all set.\n");
+		sleep(1);
+		system("clear");
+	}
+	else
+	{
+		slow_print("Ok, I'll help you make chicken once you get those ingredients.");
+		sleep(1);
+		system("clear");
+		return;
+	}
+
+	slow_print_wait("First things first; bring a big pot of water to a boil. Cook the elbow noodles in the water (while it's boiling), making sure to stir until cooked but still firm to the bite, usually 8 minutes.\n\n");
 	sleep(1);
-	slow_print_wait("Drain the noodles now. Melt a quarter cup butter in a pan over medium heat, and stir in a quarter cup all purpose flour and half a teaspoon salt until smooth (usually 5 minutes).\n\n");
+	slow_print_wait("Drain the noodles now. Melt the butter in a pan over medium heat, and stir the all purpose flour and salt until smooth (usually 5 minutes).\n\n");
 	sleep(1);
-	slow_print_wait("Slowly pour 2 cups milk into the butter flour mixture while continuously stirring until the mix is smooth and bubbling.\n\n");
+	slow_print_wait("Slowly pour the milk into the butter flour mixture while continuously stirring until the mix is smooth and bubbling.\n\n");
 	sleep(1);
-	slow_print_wait("Add 2 cups shredded cheddar cheese to the milk mixture and stir until the mix is melted, usually 2 to 4 minutes.\n\n");
+	slow_print_wait("Add shredded cheddar cheese to the milk mixture and stir until the mix is melted, usually 2 to 4 minutes.\n\n");
 	sleep(1);
-	slow_print_wait("Stir the mixture into the noodles until the whole thing is coated.\n\n");
+	slow_print_wait("Stir the mixture into the noodles until everything is coated.\n\n");
 	sleep(1);
 	slow_print_wait("Now you can add a bit more pepper if you want. You can now serve it!\n\n");
 
@@ -214,15 +236,37 @@ void potatoes(void)
 	sleep(1);
 	system("clear");
 	
+	slow_print("First, let's check out the ingredients list to make sure you have everything.\n");
+	slow_print("You'll need very little things for this simple meal, but you can always add more if you'd like.\n\n");
+	sleep(2);
+	system("clear");
+
+	slow_print("You'll need:\n\n1. Potatoes\n2. About two tablespoons of cheese\n3. Salt and pepper\n4. Sour cream\n\n");
+	slow_print("Do you have everything?\n\n");
+
+	if (getchar() == 89 || getchar() == 121)
+	{
+		slow_print("\nGreat! You're all set.\n");
+		sleep(1);
+		system("clear");
+	}
+	else
+	{
+		slow_print("Ok, I'll help you make chicken once you get those ingredients.");
+		sleep(1);
+		system("clear");
+		return;
+	}
+
 	slow_print_wait("Make sure to wash and scrub the potato. Prick it in several places with a fork.\n\n");
 	sleep(1);
 	slow_print_wait("Cook in the microwave for 5 minutes. Then, turn it over and cook for 5 more minutes.\n\n");
 	sleep(1);
-	slow_print_wait("Season it with as much pepper and salt as you'd like, and mash up the inside a bit with a fork. Top it with some butter and 2 tablespoons of cheese.\n\n");
+	slow_print_wait("Season it with as much pepper and salt as you'd like, and mash up the inside a bit with a fork. Top it with some butter and a bit of cheese.\n\n");
 	sleep(1);
 	slow_print_wait("Return it to the microwave and cook for about one more minute.\n\n");
 	sleep(1);
-	slow_print_wait("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!\n\n");
+	slow_print_wait("Top it with more cheese, if you'd like, and maybe some sour cream. You can now serve it!\n\n");
 
 	system("clear");
 }
