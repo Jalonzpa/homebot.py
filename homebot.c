@@ -24,6 +24,7 @@ int main(void) //main function
 	bool program_running = true;
     char name[20];
 	int config = 0;
+	FILE *fp;
 
 	FILE *settings;
 	settings = fopen("settings.txt", "r");
@@ -43,17 +44,15 @@ int main(void) //main function
 	fclose(settings);
 	}
 
-	int fclose(FILE *);
-
 	while (program_running)
 	{	
-		slow_print("MENU:\n\n1. Chicken\n2. Home-made Kraft Dinner\n3. Potatoes\n\n"); //Prints main menu
+		slow_print("MENU:\n\n1. Chicken\n2. Home-made Kraft Dinner\n3. Potatoes\n\n4. Reset\n\n"); //Prints main menu
 		
 		scanf("%i", &menu_selection); //Continually scans for an integer typed by the user
 
 		while (if_selection == 0)
 		{
-			switch (menu_selection)
+			switch (menu_selection) 
 			{
 			case 1: //If the user types 1 (chicken)
 				chicken();
@@ -69,7 +68,15 @@ int main(void) //main function
 				potatoes();
 				
 				break;
-        
+
+			case 4: //If the user types 4 (reset)
+				fp = fopen("settings.txt", "w");
+				fprintf(fp, "a");
+				fclose(fp);
+
+				break;
+				exit(0);
+
       		default: //If user doesn't type 1, 2, or 3
 			system("clear");	
 			slow_print("I'm sorry, you didn't enter a correct value. Please try again.\n\n");
