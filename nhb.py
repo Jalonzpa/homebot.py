@@ -3,6 +3,7 @@
 import time
 import os
 import sys
+import config
 allgood=False
 allgood2=False
 allgood3=False
@@ -45,14 +46,14 @@ def main():
 	os.system("clear")
         global ingravailable
         if favmeal == 'chicken':
-            sprint("You need these ingredients: a whole chicken, herbs like rosemary, chive, cilantro, or anything else, whole lemons, pepper, and salt. Do you have all these ingredients? (y/n)\n")
+	    sprint(config.ingredients["chicken"])
             ingravailable=raw_input()
         elif favmeal == 'kraft dinner':
-            sprint("You'll just need these 3 ingredients: elbow noodles, breadcrumbs, and cheese. Do you have those? (y/n)\n")
+	    sprint(config.ingredients["kd"])
             ingravailable=raw_input()
             allgood2=True
         elif favmeal == 'potatoes':
-            sprint("You need these ingredients: potatoes, cheese, sour cream, and bacon. Do you have those? (y/n)\n")
+	    sprint(config.ingredients["potatoes"])
             ingravailable=raw_input()
             allgood2=True
     # sprints to the user about their ingredients, or lack thereof

@@ -1,2 +1,2 @@
 import config
-print config.truck["color"]
+print(config.ingredients["kd"])
