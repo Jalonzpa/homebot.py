@@ -18,7 +18,7 @@ def sprint(s):
         sys.stdout.flush()
         time.sleep(0.03)
 os.system("clear")
-sprint("Welcome to HomeBotOS!")
+sprint("Booting HomeBotOS...")
 time.sleep(2)
 os.system("clear")
 
@@ -26,11 +26,10 @@ def main():
 #Asks user baseline questions
     def questions():
         os.system("clear")
-	sprint("So, what do you want tonight?")
+	sprint("So, what do you want tonight? ")
 	sprint("We have a few things on the menu currently.\nType the number that corresponds with the food you want!\n")
-	time.sleep(3)
-	os.system("clear")
-	print("MENU:\n\n1.Chicken\n2.Kraft dinner\n3.Potatoes\n")
+	time.sleep(1)
+	sprint("\n\nMENU:\n\n1. Chicken\n2. Kraft dinner\n3. Potatoes\n")
         global favmeal
         menu=raw_input()
 	if menu == "1":
@@ -46,14 +45,14 @@ def main():
 	os.system("clear")
         global ingravailable
         if favmeal == 'chicken':
-	    sprint(config.ingredients["chicken"])
+	    sprint(config.ingredients["chicken"] + " (y/n)")
             ingravailable=raw_input()
         elif favmeal == 'kraft dinner':
-	    sprint(config.ingredients["kd"])
+	    sprint(config.ingredients["kd"] + " (y/n)")
             ingravailable=raw_input()
             allgood2=True
         elif favmeal == 'potatoes':
-	    sprint(config.ingredients["potatoes"])
+	    sprint(config.ingredients["potatoes"] + " (y/n)")
             ingravailable=raw_input()
             allgood2=True
     # sprints to the user about their ingredients, or lack thereof
@@ -112,15 +111,15 @@ def main():
             sprint("Top it with more cheese, if you'd like, and sour cream, also optional. You can now serve it!")
 
 # Introduction
-    sprint("Hello! I am HomeBot, your personal cooking helper.\n I am going to help you with all your cooking needs!")
+    sprint("Hello! I am HomeBot, your personal cooking helper.\nI am going to help you with all your cooking needs! ")
     time.sleep(3)
     questions()
 
-    sprint("How many times do you want me to help you make %s this week? (Answer with a number.)" % favmeal)
+    sprint("How many times do you want me to help you make %s this week? (Answer with a number.)\n" % favmeal)
     timeweek=raw_input()
     time.sleep(1)
-    sprint("Ok, I'll help you make %s %s times this week." % (favmeal, timeweek))
-
+    sprint("\n\nOk, I'll help you make %s %s times this week." % (favmeal, timeweek))
+    time.sleep(2)
 
     ingredients()
     ingrcheck()
