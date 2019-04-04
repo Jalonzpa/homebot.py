@@ -31,7 +31,7 @@ def main():
     # Asks user baseline questions
     def questions():
         os.system("clear") # Clears the console screen
-        sprint("So, what do you want tonight? ")
+        sprint("Alright %s, what do you want tonight? " % name) # Why isn't this workingahdujlfdhjsfhkdslfjsdfhslkahfkjh8ewuifhdskj
         sprint("We have a few things on the menu currently.\nType the number that corresponds with the food you want!\n")
         time.sleep(1) # Pauses for one second
         sprint("\n\nMENU:\n\n1. Chicken\n2. Kraft dinner\n3. Potatoes\n")
@@ -45,6 +45,11 @@ def main():
             meal = "potatoes"
         sprint("Awesome! I'll help you make %s." % (meal))
         time.sleep(1)
+        sprint("\n\nHow many times do you want me to help you make %s this week? (Answer with a number.)\n" % meal)
+        timeweek=input()
+        time.sleep(1)
+        sprint("\nOk, I'll help you make %s %s times this week." % (meal, timeweek))
+        time.sleep(2)
     # Tells the user what ingredients they need
     def ingredients():
         global ingravailable
@@ -96,17 +101,29 @@ def main():
                 sprint("\nPress [Enter] to continue.\n")
                 input()
                 os.system("clear")
+
+    def introduction():
+        sprint("Hello! I am HomeBot, your personal cooking helper.\nI am going to help you with all your cooking needs! ")
+        time.sleep(3)
+
+        sprint("First of all, what's your name?")
+        global name
+        name = input()
+        print("variable" + name)
+        f = open('config.py', 'a')
+        f.write("\nname = dict(\n    yourname = \"" + name + "\",\n)")
 # Introduction
-    sprint("Hello! I am HomeBot, your personal cooking helper.\nI am going to help you with all your cooking needs! ")
-    time.sleep(3)
+    try:
+        if config.name["yourname"]: # if there is a "name" module
+            global name
+            name = config.name["yourname"]
+            print("yallgottem")
+            time.sleep(3)
+    except:
+            print("BLANK")
+            introduction() # Make this include all below stuff
+
     questions()
-
-    sprint("\n\nHow many times do you want me to help you make %s this week? (Answer with a number.)\n" % meal)
-    timeweek=input()
-    time.sleep(1)
-    sprint("\nOk, I'll help you make %s %s times this week." % (meal, timeweek))
-    time.sleep(2)
-
     ingredients()
     instructions()
 

@@ -1,12 +1,6 @@
-import time
+import os
 
-number = 0
+f = open('name.py', 'w')
+f.write("hi buddy")
 
-with open('instructions.txt') as f:
-    lines = f.readlines()
-
-while True:
-	print lines[number]
-	time.sleep(1)
-	input("\n\nPress [Enter] to continue.\n")
-	number += 1
+print(os.path.isfile("name.py") and os.path.getsize("name.py") > 0)
