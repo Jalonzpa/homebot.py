@@ -58,13 +58,13 @@ def main():
         while not ingredientcheck: # When the user says "y" or "n", ingredientcheck is equal to True, otherwise it repeats the function
             os.system("clear")
             if meal == 'chicken':
-                sprint(config.ingredients["chicken"] + " (y/n)") # Pulls in ingredients from the config.py file and appends (y/n) to the end of it
+                sprint(config.ingredients["chicken"] + " (y/n)\n") # Pulls in ingredients from the config.py file and appends (y/n) to the end of it
                 ingravailable=input()
             elif meal == 'kraft dinner':
-                sprint(config.ingredients["kd"] + " (y/n)")
+                sprint(config.ingredients["kd"] + " (y/n)\n")
                 ingravailable=input()
             elif meal == 'potatoes':
-                sprint(config.ingredients["potatoes"] + " (y/n)")
+                sprint(config.ingredients["potatoes"] + " (y/n)\n")
                 ingravailable=input()
 
         # Tells the user whether they're good to go or not
@@ -85,8 +85,8 @@ def main():
         os.system("clear")
         if meal == "chicken":
             for i in config.chicken: # Iterates over the line numbers in the config.py file
-                sprint(lines[i]) # Prints one instruction line at a time
-                print("\n\nPress [Enter] to continue.\n")
+                print(lines[i]) # Prints one instruction line at a time
+                sprint("\n\nPress [Enter] to continue.\n")
                 input()
                 os.system("clear")
         if meal == "kraft dinner":

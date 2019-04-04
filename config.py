@@ -7,3 +7,7 @@ ingredients = dict(
 chicken = [1,2,3,4,5,6,7]
 kd = [10,11,12,13,14,15]
 potatoes = [18,19,20,21,22]
+
+name = dict(
+    yourname = "Grace",
+)
