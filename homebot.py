@@ -21,7 +21,7 @@ def sprint(s):
     for c in s:
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(0.03)
+        time.sleep(0.02)
 os.system("clear")
 sprint("Booting HomeBotOS...")
 time.sleep(2)
@@ -106,7 +106,7 @@ def main():
         sprint("Hello! I am HomeBot, your personal cooking helper.\nI am going to help you with all your cooking needs! ")
         time.sleep(3)
 
-        sprint("First of all, what's your name?")
+        sprint("\n\nFirst of all, what's your name?\n\n")
         global name
         name = input()
         print("variable" + name)
@@ -117,10 +117,7 @@ def main():
         if config.name["yourname"]: # if there is a "name" module
             global name
             name = config.name["yourname"]
-            print("yallgottem")
-            time.sleep(3)
     except:
-            print("BLANK")
             introduction() # Make this include all below stuff
 
     questions()
